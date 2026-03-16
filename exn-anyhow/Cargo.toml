@@ -13,24 +13,21 @@
 # limitations under the License.
 
 [package]
-name = "exn"
-version = "0.3.0"
+name = "exn-anyhow"
+version = "0.1.0"
 
-description = "A context-aware concrete Error type built on `core::error::Error`."
+description = "Interop helpers between exn and anyhow."
 
 edition.workspace = true
 homepage.workspace = true
 license.workspace = true
-readme.workspace = true
+readme = "README.md"
 repository.workspace = true
 rust-version.workspace = true
 
-[package.metadata.docs.rs]
-all-features = true
-rustdoc-args = ["--cfg", "docsrs"]
-
-[dev-dependencies]
-insta = { workspace = true }
+[dependencies]
+anyhow = { workspace = true }
+exn = { workspace = true }
 
 [lints]
 workspace = true
