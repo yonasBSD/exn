@@ -67,8 +67,8 @@ jobs:
       - name: Adjust snapshots on Windows
         if: ${{ startsWith(matrix.os, 'windows') }}
         run: |
-          perl -i -pe 's/\//\\/g if /at exn/' exn/tests/snapshots/*.snap
-          perl -i -pe 's/(?<!\/)\/(?!\/)/\\/g if /, at/' examples/src/*.rs
+          perl -i -pe 's/(?<!\/)\/(?!\/)/\\/g if /at exn/' exn/tests/snapshots/*.snap
+          perl -i -pe 's/(?<!\/)\/(?!\/)/\\/g if /, at/' examples/tests/snapshots/*.snap
         shell: bash
       - name: Run unit tests
         run: cargo x test --no-capture

@@ -18,10 +18,10 @@
 //! - Legacy code returns `anyhow::Result<T>`.
 //! - At the boundary, convert into `exn::Result<T, exn_anyhow::AnyhowError>`.
 
-use derive_more::Display;
 use exn::Result;
 use exn::ResultExt;
 use exn_anyhow::from_anyhow;
+use parse_display::Display;
 
 fn main() -> Result<(), MainError> {
     app::run().or_raise(|| MainError)?;
@@ -62,10 +62,3 @@ mod legacy {
         Ok(port)
     }
 }
-
-// Output when running `cargo run -p examples --example from-anyhow`:
-//
-// Error: fatal error occurred in application, at examples/src/from-anyhow.rs:27:16
-// |-- failed to run app, at examples/src/from-anyhow.rs:42:14
-// |-- PORT must be a number; got "not-a-number", at exn-anyhow/src/lib.rs:51:19
-// `-- invalid digit found in string, at exn-anyhow/src/lib.rs:48:19

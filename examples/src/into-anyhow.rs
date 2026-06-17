@@ -20,10 +20,10 @@
 
 use std::error::Error;
 
-use derive_more::Display;
 use exn::Result;
 use exn::ResultExt;
 use exn_anyhow::into_anyhow;
+use parse_display::Display;
 
 fn main() -> anyhow::Result<()> {
     app::run().map_err(into_anyhow)?;
@@ -62,11 +62,3 @@ mod config {
     pub struct ConfigError(String);
     impl Error for ConfigError {}
 }
-
-// Output when running `cargo run -p examples --example into-anyhow`:
-//
-// Error: failed to start app
-//
-// Caused by:
-//     0: PORT must be a number; got "not-a-number"
-//     1: invalid digit found in string

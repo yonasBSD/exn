@@ -23,12 +23,12 @@
 
 use std::error::Error;
 
-use derive_more::Display;
 use exn::Exn;
 use exn::Frame;
 use exn::Result;
 use exn::ResultExt;
 use exn::bail;
+use parse_display::Display;
 
 use crate::http::HttpError;
 
@@ -106,19 +106,3 @@ mod http {
     }
     impl Error for HttpError {}
 }
-
-// Output when running `cargo run --example downcast`:
-//
-// HTTP error with status code: 503
-// Retryable error, attempting retry #1
-//
-// HTTP error with status code: 503
-// Retryable error, attempting retry #2
-//
-// HTTP error with status code: 503
-// Retryable error, attempting retry #3
-//
-// HTTP error with status code: 503
-// Error: fatal error occurred in application, at examples/src/downcast.rs:54:24
-// |-- failed to run app, at examples/src/downcast.rs:82:35
-// `-- HTTP 503: service unavailable, at examples/src/downcast.rs:95:9
