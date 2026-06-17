@@ -48,10 +48,7 @@ cargo run -p examples --example into-anyhow
 
 This crate is built against the latest stable release, and its minimum supported rustc version is 1.85.0.
 
-The policy is that the minimum Rust version required to use this crate can be increased in minor
-version updates. For example, if version 1.0 requires Rust 1.60.0, then version 1.0.z for all
-values of z will also require Rust 1.60.0 or newer. However, version 1.y for y > 0 may require a
-newer minimum version of Rust.
+The policy is that the minimum Rust version required to use this crate can be increased in minor version updates. For example, if version 1.0 requires Rust 1.60.0, then version 1.0.z for all values of z will also require Rust 1.60.0 or newer. However, version 1.y for y > 0 may require a newer minimum version of Rust.
 
 ## License
 
